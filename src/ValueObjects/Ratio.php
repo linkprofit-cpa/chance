@@ -16,8 +16,8 @@ class Ratio
 
     public function __construct($value)
     {
-        if ($value < 1 || 1000 < $value) {
-            throw new InvalidArgumentException('Ratio value must be in range of 1 and 1000');
+        if ($value < 1 || PHP_INT_MAX < $value) {
+            throw new InvalidArgumentException('Ratio value must be in range of 1 and PHP_INT_MAX');
         }
 
         $this->value = $value;

@@ -6,7 +6,7 @@ use Linkprofit\Chance\Strategies\StrategyFactory;
 use Linkprofit\Chance\Strategies\CalculationStrategyInterface;
 
 /**
- * Split traffic for new features
+ * Расчёт вероятности на основе заданных параметров
  */
 class Chance
 {
@@ -19,7 +19,7 @@ class Chance
     }
 
     /**
-     * Calculate probability
+     * Расчитываем вероятность
      *
      * @return bool;
      */
