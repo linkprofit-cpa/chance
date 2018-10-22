@@ -13,8 +13,6 @@ class StrategyFactory
 {
     public function create($valueObject)
     {
-        $result = null;
-
         switch (true) {
             case $valueObject instanceof Ratio:
                 $result = new RatioStrategy($valueObject);
