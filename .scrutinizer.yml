@@ -7,6 +7,9 @@ build:
     neo4j: false
     rabbitmq: false
     elasticsearch: false
+  tests:
+    override:
+      - true
 
 filter:
   excluded_paths:
