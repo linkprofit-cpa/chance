@@ -7,9 +7,14 @@ build:
     neo4j: false
     rabbitmq: false
     elasticsearch: false
-  tests:
-    override:
-      - true
+  nodes:
+    tests:
+      override:
+        -
+          command: vendor/bin/phpunit --coverage-clover=coverage-report.xml
+          coverage:
+            file: coverage-report.xml
+            format: php-clover
 
 filter:
   excluded_paths:
