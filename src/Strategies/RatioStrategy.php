@@ -11,7 +11,7 @@ use Linkprofit\Chance\ValueObjects\Ratio;
  */
 class RatioStrategy implements CalculationStrategyInterface
 {
-    /** @var float */
+    /** @var int */
     protected $value;
 
     public function __construct(Ratio $ratio)
@@ -22,7 +22,7 @@ class RatioStrategy implements CalculationStrategyInterface
     /**
      * Calculate probability
      *
-     * @return bool;
+     * @return bool
      */
     public function calculate(): bool
     {
