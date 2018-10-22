@@ -1,0 +1,38 @@
+{
+  "name": "linkprofit-cpa/chance",
+  "description": "Probability calculator",
+  "type": "metapackage",
+  "keywords": [
+    "chance",
+    "calculator"
+  ],
+  "homepage": "https://github.com/linkprofit-cpa/chance",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Yancharuk Alexander",
+      "email": "alex@itvault.info",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.2.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*",
+    "roave/security-advisories": "dev-master"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "Linkprofit\\Chance\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Linkprofit\\Chance\\": "tests/"
+    }
+  }
+}
