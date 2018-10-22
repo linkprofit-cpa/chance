@@ -4,9 +4,9 @@
 ## Примеры
 
 ```php
-    // Получить шанс в одной пятой случаев
-    $chance = new Chance(Ratio(5));
-    if ($chance->get()) {
-        ...
-    }
+// Получить шанс в одной пятой случаев
+$chance = new Chance(Ratio(5));
+if ($chance->get()) {
+    ...
+}
 ```
