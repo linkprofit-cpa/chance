@@ -10,7 +10,7 @@ use linkprofit\Chance\ValueObjects\Ratio;
  */
 class StrategyFactory
 {
-    public function create($valueObject)
+    public function create($valueObject): CalculationStrategyInterface
     {
         switch (true) {
             case $valueObject instanceof Ratio:
