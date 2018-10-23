@@ -3,12 +3,12 @@
 namespace linkprofit\Chance\Strategies;
 
 /**
- * Interface for splitting strategy
+ * Интерфейс для расчёта вероятности
  */
 interface CalculationStrategyInterface
 {
     /**
-     * Calculate probability
+     * Расчитываем вероятность
      *
      * @return bool
      */
