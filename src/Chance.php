@@ -1,9 +1,9 @@
 <?php
 
-namespace Linkprofit\Chance;
+namespace linkprofit\Chance;
 
-use Linkprofit\Chance\Strategies\StrategyFactory;
-use Linkprofit\Chance\Strategies\CalculationStrategyInterface;
+use linkprofit\Chance\Strategies\StrategyFactory;
+use linkprofit\Chance\Strategies\CalculationStrategyInterface;
 
 /**
  * Расчёт вероятности на основе заданных параметров

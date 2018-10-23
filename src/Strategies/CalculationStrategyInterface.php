@@ -1,6 +1,6 @@
 <?php
 
-namespace Linkprofit\Chance\Strategies;
+namespace linkprofit\Chance\Strategies;
 
 /**
  * Interface for splitting strategy

@@ -1,9 +1,9 @@
 <?php
 
-namespace Linkprofit\Chance\Strategies;
+namespace linkprofit\Chance\Strategies;
 
 use InvalidArgumentException;
-use Linkprofit\Chance\ValueObjects\Ratio;
+use linkprofit\Chance\ValueObjects\Ratio;
 use PHPUnit\Framework\TestCase;
 
 /**
