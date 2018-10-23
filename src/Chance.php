@@ -21,7 +21,7 @@ class Chance
     /**
      * Расчитываем вероятность
      *
-     * @return bool;
+     * @return bool
      */
     public function get(): bool
     {
