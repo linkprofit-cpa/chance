@@ -27,12 +27,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Linkprofit\\Chance\\": "src/"
+      "linkprofit\\Chance\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Linkprofit\\Chance\\": "tests/"
+      "linkprofit\\Chance\\": "tests/"
     }
   }
 }

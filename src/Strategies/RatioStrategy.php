@@ -1,8 +1,8 @@
 <?php
 
-namespace Linkprofit\Chance\Strategies;
+namespace linkprofit\Chance\Strategies;
 
-use Linkprofit\Chance\ValueObjects\Ratio;
+use linkprofit\Chance\ValueObjects\Ratio;
 
 /**
  * Вычисление вероятности по отношению к целому

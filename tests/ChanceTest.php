@@ -1,10 +1,10 @@
 <?php
 
-namespace Linkprofit\Chance;
+namespace linkprofit\Chance;
 
-use Linkprofit\Chance\Strategies\RatioStrategy;
-use Linkprofit\Chance\Strategies\RatioStrategyTest;
-use Linkprofit\Chance\ValueObjects\Ratio;
+use linkprofit\Chance\Strategies\RatioStrategy;
+use linkprofit\Chance\Strategies\RatioStrategyTest;
+use linkprofit\Chance\ValueObjects\Ratio;
 use PHPUnit\Framework\TestCase;
 
 include_once __DIR__ . '/Strategies/mt_rand.php';

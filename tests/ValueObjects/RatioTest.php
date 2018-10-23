@@ -1,6 +1,6 @@
 <?php
 
-namespace Linkprofit\Chance\ValueObjects;
+namespace linkprofit\Chance\ValueObjects;
 
 use PHPUnit\Framework\TestCase;
 
