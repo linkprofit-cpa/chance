@@ -10,7 +10,7 @@ interface CalculationStrategyInterface
     /**
      * Calculate probability
      *
-     * @return bool;
+     * @return bool
      */
     public function calculate(): bool;
 }
