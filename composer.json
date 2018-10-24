@@ -1,7 +1,7 @@
 {
   "name": "linkprofit-cpa/chance",
   "description": "Probability calculator",
-  "type": "metapackage",
+  "type": "library",
   "keywords": [
     "chance",
     "calculator"
