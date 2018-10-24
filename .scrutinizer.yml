@@ -14,6 +14,11 @@ build:
         coverage:
           file: coverage-report.xml
           format: php-clover
+  nodes:
+    analysis:
+      tests:
+        override:
+          - php-scrutinizer-run
 
 filter:
   excluded_paths:
