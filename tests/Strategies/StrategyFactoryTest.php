@@ -3,6 +3,7 @@
 namespace linkprofit\Chance\Strategies;
 
 use InvalidArgumentException;
+use linkprofit\Chance\ValueObjects\Percent;
 use linkprofit\Chance\ValueObjects\Ratio;
 use PHPUnit\Framework\TestCase;
 
@@ -34,12 +35,16 @@ class StrategyFactoryTest extends TestCase
     public function createProvider()
     {
         $ratio = new Ratio(5);
-        $expected = new RatioStrategy($ratio);
+        $percent = new Percent(50);
 
         return [
             [
                 $ratio,
-                $expected
+                new RatioStrategy($ratio)
+            ],
+            [
+                $percent,
+                new PercentStrategy($percent)
             ]
         ];
     }

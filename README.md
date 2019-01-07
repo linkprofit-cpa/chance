@@ -13,7 +13,11 @@
 
 ```php
 // Получить шанс в одной пятой случаев
-$chance = new Chance(Ratio(5));
+$chance = new Chance(new Ratio(5));
+
+// Получить шанс в 25%
+$chance = new Chance(new Percent(25));
+
 if ($chance->get()) {
     ...
 }

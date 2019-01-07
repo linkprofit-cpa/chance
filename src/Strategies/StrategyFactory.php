@@ -3,6 +3,7 @@
 namespace linkprofit\Chance\Strategies;
 
 use InvalidArgumentException;
+use linkprofit\Chance\ValueObjects\Percent;
 use linkprofit\Chance\ValueObjects\Ratio;
 
 /**
@@ -15,6 +16,9 @@ class StrategyFactory
         switch (true) {
             case $valueObject instanceof Ratio:
                 $result = new RatioStrategy($valueObject);
+                break;
+            case $valueObject instanceof Percent:
+                $result = new PercentStrategy($valueObject);
                 break;
             default:
                 throw new InvalidArgumentException('Unknown value object type');
