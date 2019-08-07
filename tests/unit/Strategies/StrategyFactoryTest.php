@@ -38,11 +38,11 @@ class StrategyFactoryTest extends Unit
         $percent = new Percent(50);
 
         return [
-            [
+            'ratio' => [
                 $ratio,
                 new RatioStrategy($ratio)
             ],
-            [
+            'percent' => [
                 $percent,
                 new PercentStrategy($percent)
             ]
@@ -50,11 +50,24 @@ class StrategyFactoryTest extends Unit
     }
 
     /**
-     * @expectedException InvalidArgumentException
-     * @expectedExceptionMessage Unknown value object type
+     * @param $value
+     * @dataProvider wrongValueObjectProvider
      */
-    public function testCreateException()
+    public function testCreateionOfStrategyWithWrongValueObject($value)
     {
-        $this->object->create(10);
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Unknown value object type');
+        $this->object->create($value);
+    }
+
+    public function wrongValueObjectProvider()
+    {
+        return [
+            'int' => [10],
+            'string' => ['string'],
+            'bool true' => [true],
+            'bool false' => [false],
+            'std class' => [new class{}],
+        ];
     }
 }

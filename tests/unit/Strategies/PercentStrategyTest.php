@@ -15,7 +15,7 @@ class PercentStrategyTest extends Unit
     const TRUE = 60;
     const FALSE = 10;
 
-    public function test__construct()
+    public function testCreationOfPercentStrategy()
     {
         $expected = static::FALSE;
         $value = new Percent($expected);
@@ -30,7 +30,7 @@ class PercentStrategyTest extends Unit
      * @param $value
      * @param $expected
      */
-    public function testCalculate($value, $expected)
+    public function testCalculateProbability($value, $expected)
     {
         $percent = new Percent($value);
         $object = new PercentStrategy($percent);
@@ -43,11 +43,11 @@ class PercentStrategyTest extends Unit
     public function calculateProvider()
     {
         return [
-            [
+            'true' =>[
                 static::TRUE,
                 true,
             ],
-            [
+            'false' =>[
                 static::FALSE,
                 false,
             ]
