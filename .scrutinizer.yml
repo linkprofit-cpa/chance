@@ -10,9 +10,9 @@ build:
   tests:
     override:
       -
-        command: vendor/bin/phpunit --coverage-clover=coverage-report.xml
+        command: composer test
         coverage:
-          file: coverage-report.xml
+          file: ./test/_output/coverage.xml
           format: php-clover
   nodes:
     analysis:

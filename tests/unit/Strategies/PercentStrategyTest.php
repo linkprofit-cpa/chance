@@ -3,14 +3,14 @@
 namespace linkprofit\Chance\Strategies;
 
 use linkprofit\Chance\ValueObjects\Percent;
-use PHPUnit\Framework\TestCase;
+use Codeception\Test\Unit;
 
 require_once 'mt_rand.php';
 
 /**
  * @group strategies
  */
-class PercentStrategyTest extends TestCase
+class PercentStrategyTest extends Unit
 {
     const TRUE = 60;
     const FALSE = 10;

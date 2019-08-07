@@ -3,14 +3,14 @@
 namespace linkprofit\Chance\Strategies;
 
 use linkprofit\Chance\ValueObjects\Ratio;
-use PHPUnit\Framework\TestCase;
+use Codeception\Test\Unit;
 
 require_once 'mt_rand.php';
 
 /**
  * @group strategies
  */
-class RatioStrategyTest extends TestCase
+class RatioStrategyTest extends Unit
 {
     const TRUE = 3;
     const FALSE = 10;

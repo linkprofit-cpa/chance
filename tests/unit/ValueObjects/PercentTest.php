@@ -2,12 +2,12 @@
 
 namespace linkprofit\Chance\ValueObjects;
 
-use PHPUnit\Framework\TestCase;
+use Codeception\Test\Unit;
 
 /**
  * @group value-objects
  */
-class PercentTest extends TestCase
+class PercentTest extends Unit
 {
     /**
      * @param $expected

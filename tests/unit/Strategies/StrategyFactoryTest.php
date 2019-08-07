@@ -2,20 +2,20 @@
 
 namespace linkprofit\Chance\Strategies;
 
+use \Codeception\Test\Unit;
 use InvalidArgumentException;
 use linkprofit\Chance\ValueObjects\Percent;
 use linkprofit\Chance\ValueObjects\Ratio;
-use PHPUnit\Framework\TestCase;
 
 /**
  * @group strategies
  */
-class StrategyFactoryTest extends TestCase
+class StrategyFactoryTest extends Unit
 {
     /** @var StrategyFactory */
     protected $object;
 
-    public function setUp()
+    public function _before()
     {
         $this->object = new StrategyFactory;
     }
@@ -25,7 +25,7 @@ class StrategyFactoryTest extends TestCase
      * @param $value
      * @param $expected
      */
-    public function testCreate($value, $expected)
+    public function testCreationOfPercentStrategy($value, $expected)
     {
         $actual = $this->object->create($value);
         $msg = 'StrategyFactory::create() returns wrong result';
