@@ -3,19 +3,19 @@
 namespace linkprofit\Chance\Strategies;
 
 use linkprofit\Chance\ValueObjects\Ratio;
-use PHPUnit\Framework\TestCase;
+use Codeception\Test\Unit;
 
 require_once 'mt_rand.php';
 
 /**
  * @group strategies
  */
-class RatioStrategyTest extends TestCase
+class RatioStrategyTest extends Unit
 {
     const TRUE = 3;
     const FALSE = 10;
 
-    public function test__construct()
+    public function testCreationOfRatioStrategy()
     {
         $expected = static::FALSE;
         $value = new Ratio($expected);
@@ -30,24 +30,23 @@ class RatioStrategyTest extends TestCase
      * @param $value
      * @param $expected
      */
-    public function testCalculate($value, $expected)
+    public function testCalculateProbability($value, $expected)
     {
         $ratio = new Ratio($value);
         $object = new RatioStrategy($ratio);
 
         $actual = $object->calculate();
-        $msg = 'RatioStrategy::calculate() returns wrong result';
-        $this->assertSame($expected, $actual, $msg);
+        $this->assertSame($expected, $actual);
     }
 
     public function calculateProvider()
     {
         return [
-            [
+            'true' => [
                 static::TRUE,
                 true,
             ],
-            [
+            'false' => [
                 static::FALSE,
                 false,
             ]

@@ -2,18 +2,19 @@
 
 namespace linkprofit\Chance\ValueObjects;
 
-use PHPUnit\Framework\TestCase;
+use Codeception\Test\Unit;
+use InvalidArgumentException;
 
 /**
  * @group value-objects
  */
-class RatioTest extends TestCase
+class RatioTest extends Unit
 {
     /**
      * @param $expected
      * @dataProvider constructProvider
      */
-    public function test__construct($expected)
+    public function testInitializationOfRation($expected)
     {
         $object = new Ratio($expected);
         $msg = 'Ratio::__construct() wrong behavior';
@@ -23,38 +24,38 @@ class RatioTest extends TestCase
     public function constructProvider()
     {
         return [
-            [
+            ' 10' => [
                 10
             ],
-            [
+            ' 100' => [
                 100
             ],
-            [
+            ' 18' => [
                 18
             ]
         ];
     }
 
     /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Ratio value must be in range of 1 and PHP_INT_MAX
      * @dataProvider constructExceptionProvider
      */
-    public function testConstructException()
+    public function testInitializationOfRationWithWrongParams()
     {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Ratio value must be in range of 1 and PHP_INT_MAX');
         new Ratio(0);
     }
 
     public function constructExceptionProvider()
     {
         return [
-            [
+            ' 0' => [
                 0
             ],
-            [
+            'PHP_INT_MAX' => [
                 PHP_INT_MAX + 1
             ],
-            [
+            ' -200' => [
                 -200
             ]
         ];
@@ -65,7 +66,7 @@ class RatioTest extends TestCase
      * @param $expected
      * @dataProvider getIntProvider
      */
-    public function testGetInt($value, $expected)
+    public function testGettingOfInt($value, $expected)
     {
         $object = new Ratio($value);
         $actual = $object->getInt();
@@ -76,11 +77,13 @@ class RatioTest extends TestCase
     public function getIntProvider()
     {
         return [
-            [
-                3, 3
+            '3,3' => [
+                3,
+                3
             ],
-            [
-                '200', 200
+            '200,200' => [
+                '200',
+                200
             ]
         ];
     }

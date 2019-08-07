@@ -2,18 +2,19 @@
 
 namespace linkprofit\Chance\ValueObjects;
 
-use PHPUnit\Framework\TestCase;
+use Codeception\Test\Unit;
+use InvalidArgumentException;
 
 /**
  * @group value-objects
  */
-class PercentTest extends TestCase
+class PercentTest extends Unit
 {
     /**
      * @param $expected
      * @dataProvider constructProvider
      */
-    public function test__construct($expected)
+    public function testInitializationOfPercent($expected)
     {
         $object = new Percent($expected);
         $msg = 'Percent::__construct() wrong behavior';
@@ -23,38 +24,38 @@ class PercentTest extends TestCase
     public function constructProvider()
     {
         return [
-            [
+            ' 10' => [
                 10
             ],
-            [
+            ' 100' => [
                 100
             ],
-            [
+            ' 18' => [
                 18
             ]
         ];
     }
 
     /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Percent value must be an integer and in range of 0 and 100
      * @dataProvider constructExceptionProvider
      */
-    public function testConstructException($value)
+    public function testInitializationOfPercentWithWrongParams($value)
     {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Percent value must be an integer and in range of 0 and 100');
         new Percent($value);
     }
 
     public function constructExceptionProvider()
     {
         return [
-            [
+            ' -1' => [
                 -1
             ],
-            [
+            ' 1.3' => [
                 1.3
             ],
-            [
+            ' 101' => [
                 101
             ]
         ];
@@ -65,22 +66,24 @@ class PercentTest extends TestCase
      * @param $expected
      * @dataProvider getIntProvider
      */
-    public function testGetInt($value, $expected)
+    public function testGettingOfInt($value, $expected)
     {
         $object = new Percent($value);
         $actual = $object->getInt();
         $msg = 'Ratio::getInt() returns wrong result';
-        $this->assertSame($expected, $actual, $msg);
+        $this->assertEquals($expected, $actual, $msg);
     }
 
     public function getIntProvider()
     {
         return [
-            [
-                3, 3
+            ' 3' => [
+                3,
+                3
             ],
-            [
-                '100', 100
+            ' 100' => [
+                '100',
+                100
             ]
         ];
     }

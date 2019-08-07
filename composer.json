@@ -19,7 +19,7 @@
     "php": ">=7.2.0"
   },
   "require-dev": {
-    "phpunit/phpunit": "*",
+    "codeception/codeception": "^3.0",
     "roave/security-advisories": "dev-master"
   },
   "config": {
@@ -34,5 +34,8 @@
     "psr-4": {
       "linkprofit\\Chance\\": "tests/"
     }
+  },
+  "scripts": {
+    "test": "./vendor/bin/codecept run --coverage-xml"
   }
 }

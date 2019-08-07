@@ -2,20 +2,20 @@
 
 namespace linkprofit\Chance\Strategies;
 
+use \Codeception\Test\Unit;
 use InvalidArgumentException;
 use linkprofit\Chance\ValueObjects\Percent;
 use linkprofit\Chance\ValueObjects\Ratio;
-use PHPUnit\Framework\TestCase;
 
 /**
  * @group strategies
  */
-class StrategyFactoryTest extends TestCase
+class StrategyFactoryTest extends Unit
 {
     /** @var StrategyFactory */
     protected $object;
 
-    public function setUp()
+    public function _before()
     {
         $this->object = new StrategyFactory;
     }
@@ -25,7 +25,7 @@ class StrategyFactoryTest extends TestCase
      * @param $value
      * @param $expected
      */
-    public function testCreate($value, $expected)
+    public function testCreationOfPercentStrategy($value, $expected)
     {
         $actual = $this->object->create($value);
         $msg = 'StrategyFactory::create() returns wrong result';
@@ -38,11 +38,11 @@ class StrategyFactoryTest extends TestCase
         $percent = new Percent(50);
 
         return [
-            [
+            'ratio' => [
                 $ratio,
                 new RatioStrategy($ratio)
             ],
-            [
+            'percent' => [
                 $percent,
                 new PercentStrategy($percent)
             ]
@@ -50,11 +50,24 @@ class StrategyFactoryTest extends TestCase
     }
 
     /**
-     * @expectedException InvalidArgumentException
-     * @expectedExceptionMessage Unknown value object type
+     * @param $value
+     * @dataProvider wrongValueObjectProvider
      */
-    public function testCreateException()
+    public function testCreateionOfStrategyWithWrongValueObject($value)
     {
-        $this->object->create(10);
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Unknown value object type');
+        $this->object->create($value);
+    }
+
+    public function wrongValueObjectProvider()
+    {
+        return [
+            'int' => [10],
+            'string' => ['string'],
+            'bool true' => [true],
+            'bool false' => [false],
+            'std class' => [new class{}],
+        ];
     }
 }
